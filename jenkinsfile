@@ -11,7 +11,10 @@ node {
     def PACKAGE_NAME='0Ho1U000000CaUzSAK'
     def PACKAGE_VERSION
     def SF_INSTANCE_URL = env.SFDC_HOST_DH ?: "https://login.salesforce.com"
-
+    println SF_CONSUMER_KEY
+    println SF_USERNAME
+    println SERVER_KEY_CREDENTALS_ID
+    println SF_INSTANCE_URL
     def toolbelt = tool 'toolbelt'
 
     println SF_CONSUMER_KEY
