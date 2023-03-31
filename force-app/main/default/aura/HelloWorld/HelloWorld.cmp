@@ -1,0 +1,96 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="InsertRecordContactLWC">
+    <!-- <aura:component controller="submitFormCustomObjectController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" > -->
+    <!-- <aura:attribute name="studentInfoAc" type="student_info__c" default="{'sobjectType': 'student_info__c'}" /> -->
+    <!-- <aura:attribute name/="studentItrt" type="student_info__c[]" /> -->
+    <span style="display: flex; 
+    justify-content: center;
+    font-weight: bolder;
+    font-size: x-large;">Contact Form</span>
+    <div class="slds centerbox" style="padding: 24px;">
+
+        <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Name</label>
+                <div class="slds-form-element__controller">
+                    <ui:inputText aura:id="name" class="slds-input"
+                        placeholder="Enter the name here" />
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Purpose</label>
+                <div class="slds-form-element__controller">
+                    <ui:inputText aura:id="title"  class="slds-input"
+                        placeholder="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Department</label>
+                    <div class="slds-form-element__controller">
+                        <ui:inputText aura:id="department"  class="slds-input"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Phone</label>
+                    <div class="slds-form-element__controller">
+                        <ui:inputText aura:id="phone"  class="slds-input"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Email</label>
+                    <div class="slds-form-element__controller">
+                        <ui:inputText aura:id="email"  class="slds-input"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Street</label>
+                    <div class="slds-form-element__controller">
+                        <ui:inputText aura:id="street"  class="slds-input"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_12-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">City</label>
+                    <div class="slds-form-element__controller">
+                        <ui:inputText aura:id="city"  class="slds-input"
+                            placeholder="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slds-text-align--center slds-m-top--medium">
+            <button class="slds-button slds-button--brand" onclick="{!c.submitStudentInfo}">Submit</button>
+        </div>
+    </div>
+</aura:component>

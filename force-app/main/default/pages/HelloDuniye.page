@@ -1,0 +1,20 @@
+<apex:page sidebar="false" showHeader="true"  >
+    <h1>
+        hello duniya
+    </h1>
+	<apex:pageBlock title="Header Main Block">
+    	<apex:pageBlockSection >
+            <!-- This is Header Block and show the text after click on Block  -->
+        	<p>
+        		this is paragraph {!TODAY()}
+    		</p>
+            {!$User.FirstName&' '&$User.LastName}
+            ({! IF($User.isActive, $User.Username, 'inactive') })
+    	</apex:pageBlockSection>	
+        <apex:pageBlockButtons title="Vraj Patel">
+        
+        </apex:pageBlockButtons>
+    </apex:pageBlock>
+   	
+    
+</apex:page>

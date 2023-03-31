@@ -1,0 +1,60 @@
+<template>
+    <lightning-card >
+        
+        <span >Contact Form</span>
+        <form class="slds-m-around_x-large slds-grid slds-wrap">
+            <div class="slds-p-horizontal--small slds-col slds-size_12-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input title="Name" name="name" label="Name" onchange={handleOnchange} required>
+                    </lightning-input>
+                </div>
+            </div>
+            <!--<lightning-input-address title="Address" name="address" label="Enter Address "></lightning-input-address>-->
+            
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input title="Mobile" name="mobilenum" label="Mobile Number" onchange={handleOnchange}
+                        required></lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input title="Email" name="email" label="Email-id" onchange={handleOnchange} required>
+                    </lightning-input>
+                </div>
+            </div>
+
+            
+            <!-- <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input type="date" value={datevalue} name="date" label="Date" onchange={handleOnchange} required>
+                    </lightning-input>
+                </div>
+            </div> -->
+
+
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input name="title" label="Purpose" onchange={handleOnchange} required>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_6-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input label="Department" name="department" onchange={handleOnchange} required>
+                    </lightning-input>
+                </div>
+            </div>
+            <div class="slds-p-horizontal--small slds-col slds-size_12-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+                    <lightning-input-address street-label="Street" city-label="City" country-label="Country"
+                        province-label="Province" postal-code-label="PostalCode" city={city} postal-code={postal} country={country} province={province} street={street} onchange={handleOnchange}>
+                    </lightning-input-address>
+                </div>
+            </div>
+            <div class="slds-m-left_small">
+                <button class="slds-button slds-button_brand slds-align_absolute-center"  onclick={handleOnClick} >Insert</button>
+            </div>
+        </form>
+    </lightning-card>
+</template>

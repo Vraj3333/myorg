@@ -1,0 +1,16 @@
+<apex:page standardStylesheets="true">
+    <!-- Add the static resource to page's <head> -->
+    <apex:includeScript value="{! $Resource.jQuery }"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+    <!-- A short bit of jQuery to test it's there -->
+    <script type="text/javascript">
+    console.log("hello")
+        jQuery.noConflict();
+        jQuery(document).ready(function() {
+            jQuery("#message").html("Hello from jQuery!");})
+        
+    </script>
+    <!-- Where the jQuery message will appear -->
+    <h1 id="message"></h1>
+    
+</apex:page>

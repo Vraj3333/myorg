@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="This is the Parent">
+        <p class="slds-text-align_center">
+            count : {countValue}
+        </p>
+        <c-child-to-parent-lwc onincrement={handleAdd} ondecrement={handleSub} onmultiple={handleMul}>
+
+        </c-child-to-parent-lwc>
+        
+    </lightning-card>
+
+    <lightning-card>
+        <form>
+            <lightning-input onchange={handleTextOnChange} title="This is the input field" value={valueParent}></lightning-input>
+        </form>
+    </lightning-card>
+
+    <c-child-to-parent-lwc valuefromparent={valueParent}></c-child-to-parent-lwc>
+
+
+</template>

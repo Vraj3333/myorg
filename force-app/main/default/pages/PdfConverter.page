@@ -1,0 +1,82 @@
+<apex:page controller="DataFetchTask"  showHeader="false" 
+           applyHtmlTag="false" standardStylesheets="false"  cache="true" readOnly="true"
+           renderAs="pdf">
+           
+<head>
+    <style type="text/css" media="print">
+        @page 
+        {
+       
+            margin-bottom: 15%;
+            size: A4;
+            @bottom-center 
+            {
+                content: element(footer);
+            } 
+           
+        }
+        
+        div.footer 
+        {
+            display:block;
+            position: running(footer);
+        }
+        .pagenumber:before 
+        {
+            content: counter(page);
+        }
+        .pagecount:before {
+            content: counter(pages);
+        }
+          </style>
+</head>
+ 
+
+<!--
+	code for html vf page convert into pdf 
+	converter
+
+-->
+
+
+<div class="footer"> 
+        <div align="center" >
+            Page <span class="pagenumber"/> of <span class="pagecount"/>
+        </div>
+</div>
+
+<!--task one is herer-->
+<apex:repeat value="{!samepage}" var="rpt">
+<apex:panelGrid columns="2" width="100%">
+        <!--<apex:image style="max-width: 100%;height: auto;width: auto\9;" value="{!$Resource.MitsubishiLogo}"/>-->
+        
+        <apex:panelGrid styleClass="header" columns="1" width="100%">
+            <b>MITSUBISHI ELEVATOR MALAYSIA SDN.BHD.</b><br/>
+            No.42, Jalan Penchala, 46050 Petalling Jaya, Selangor Darul Ehsan, Malaysia.<br/>
+            P.O.Box 533, Jalan Sultan, 46760 Petalling Jaya, Selangor Darul Ehsan, Malaysia.<br/>
+            Tel: 603-79103003 Fax: 603-77827827807<br/>
+            Email: melm@mitsubishi-elevator.com.my
+        </apex:panelGrid>           
+    </apex:panelGrid>
+    <apex:panelGrid styleClass="table" border="1" columns="3" cellpadding="5" width="80%" style="float:center; margin: 0 auto;">
+                                        
+                                        <apex:outputText value="SERVICING ITEMS" style="font-weight: bold;float:left;"/>
+                                        <apex:outputText value="STATUS" style="font-weight: bold"/>
+                                        <apex:outputText value="ELEVATORS" style="font-weight: bold;float:left;"/>
+                                        
+                                       <!-- <apex:repeat value="{!fieldNameList}" var="singleFieldName">
+                                                <tr>
+                                                    <td style="text-align:left;"><apex:outputText value="{!singleFieldName}"/></td>
+                                                    <td><apex:outputText value="{!megaMap[workOrderIdVal][singleMap][singleFieldName]}"/></td>
+                                                </tr> 
+                                            
+                                        </apex:repeat>-->
+                                        
+                                    </apex:panelGrid>
+<div id="end" style="page-break-after:always;">
+
+    Content Details goes here
+
+</div>
+</apex:repeat> 
+</apex:page>

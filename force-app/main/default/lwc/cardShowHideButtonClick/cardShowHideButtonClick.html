@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Click on button to show or hide the content">
+        <lightning-button label={onClickLabel} onclick={onClickEvent}></lightning-button>
+    </lightning-card>
+    <lightning-card>
+        <template if:true={cardVisible}>
+            <lightning-card title="this is the card">{cardTitle}</lightning-card>
+        </template>
+    </lightning-card>
+</template>

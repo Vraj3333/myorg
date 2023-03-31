@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="this is the form">
+        <lightning-input name="firstName" label="First name" onchange={handleChangeEvent}></lightning-input>
+        <lightning-input name="lastName" label="Last Name" onchange={handleChangeEvent}></lightning-input>
+    </lightning-card>
+
+    <lightning-card title="Changed Values">
+        Firstname -> <strong>{fullName.firstname}</strong><br>
+        Lastname -> <strong>{fullName.lastname}</strong>
+    </lightning-card>
+</template>

@@ -1,0 +1,7 @@
+/* @import url(contactForm.html); */
+span{
+    display: flex; 
+    justify-content: center;
+    font-weight: bolder;
+    font-size: x-large;
+}

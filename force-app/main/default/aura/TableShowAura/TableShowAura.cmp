@@ -1,0 +1,73 @@
+<aura:component
+    implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="InsertRecordContactLWC">
+    <aura:attribute type='Contact[]' name='contList' />
+    <aura:attribute type='Contact[]' name='contSeList' />
+    <aura:handler name='init' value='{!this}' action='{!c.myAction}' />
+    <!-- <aura:handler name='init' value='{!this}' action='{!c.myFetchSearch}' /> -->
+    <div style=" width:1000px; padding: 24px;">
+
+    <span style="display: flex; 
+    justify-content: center;
+    font-weight: bolder;
+    font-size: x-large;">Contact Table</span>
+        <table class="contacts">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Title</th>
+                <th>Department</th>
+                <th>PhoneNumber</th>
+                <th>Edit</th>
+
+            </tr>
+
+
+             <aura:if isTrue="{!v.contSeList}">
+                <aura:iteration items='{!v.contSeList}' var='contact'>
+                    <tr>
+                        <td>{!contact.LastName}</td>
+                        <td>{!contact.Email}</td>
+                        <td>{!contact.Title}</td>
+                        <td>{!contact.Department}</td>
+                        <td>{!contact.Phone}</td>
+                        <td>
+                            <button class="slds-m-left_x-small">Edit</button>
+                        </td>
+                    </tr>
+                </aura:iteration>
+                <aura:set attribute="else">
+                    <aura:iteration items='{!v.contList}' var='contact'>
+                        <tr>
+                            <td>this</td>
+                            <td>{!contact.LastName}</td>
+                            <td>{!contact.Email}</td>
+                            <td>{!contact.Title}</td>
+                            <td>{!contact.Department}</td>
+                            <td>{!contact.Phone}</td>
+                            <td>
+                                <button class="slds-m-left_x-small">Edit</button>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </aura:set>
+            </aura:if>
+
+        </table>
+
+    </div>
+    <div style="width: 1000px;">
+        <form>
+            <div class="slds-p-horizontal--small slds-col slds-size_12-of-12 slds-m-bottom--medium">
+                <div class="slds-form-element">
+
+                    <ui:inputText aura:id="search" class="slds-input" placeholder="Enter the text you want to Search" />
+                    <!-- <lightning-button label="Search" onclick={handleonchangeSearch}></lightning-button> -->
+                    <div class="slds-text-align--center slds-m-top--medium">
+                        <button class="slds-button slds-button--brand" onclick="{!c.myFetchSearch}">Search</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</aura:component>

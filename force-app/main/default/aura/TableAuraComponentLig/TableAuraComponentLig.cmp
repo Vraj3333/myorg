@@ -1,0 +1,56 @@
+<aura:component
+        implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+    access="global" controller="InsertRecordContactLWC">
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="errors" type="Object" default="[]"/>
+    <aura:attribute name="draftValues" type="Object" default="[]"/>
+    <aura:attribute type='Object' name='contSeList' />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <span style="display: flex; 
+    justify-content: center;
+    font-weight: bolder;
+    font-size: x-large;">Contact Table</span>
+    
+    <!-- the container element determine the height of the datatable -->
+    <div style="height: 300px; width: 1000px;">
+
+        <aura:if isTrue="{!v.contSeList}">
+            <lightning:datatable aura:id="dtTable"
+                             columns="{! v.columns }"
+                             data="{! v.contSeList }"
+                             keyField="Id"
+                             errors="{! v.errors }"
+                             draftValues="{! v.draftValues }"
+                             onsave="{! c.handleSaveEdition }"
+                             />
+            <aura:set attribute="else">
+                <lightning:datatable aura:id="dtTable"
+                             columns="{! v.columns }"
+                             data="{! v.data }"
+                             keyField="Id"
+                             errors="{! v.errors }"
+                             draftValues="{! v.draftValues }"
+                             onsave="{! c.handleSaveEdition }"
+                             />
+            </aura:set> 
+        </aura:if>
+        
+                             <div style="width: 1000px;">
+                                <form>
+                                    <div class="slds-p-horizontal--small slds-col slds-size_12-of-12 slds-m-bottom--medium">
+                                        <div class="slds-form-element">
+                        
+                                            <ui:inputText aura:id="search" class="slds-input" placeholder="Enter the text you want to Search" />
+                                            <!-- <lightning-button label="Search" onclick={handleonchangeSearch}></lightning-button> -->
+                                            <div class="slds-text-align--center slds-m-top--medium">
+                                                <button class="slds-button slds-button--brand" onclick="{!c.handleSearch}">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+    </div>
+</aura:component>

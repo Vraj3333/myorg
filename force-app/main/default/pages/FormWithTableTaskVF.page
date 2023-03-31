@@ -1,0 +1,137 @@
+<apex:page controller="DataFetchTask">
+
+    
+    <!--<apex:outputPanel rendered="!ansCon!==null"> -->
+    <apex:actionSupport event="onchange" rerender="tempform"/>
+    <apex:outputPanel rendered="{!if(ansCon!=null , true ,false)}">
+    
+        <apex:form id="tempform">
+            <apex:pageBlock >
+                <apex:pageBlockSection columns="1">
+                    <apex:inputField value="{!ansCon.LastName}" />
+                    <apex:inputField value="{!ansCon.Email}"/>
+                    <apex:inputField value="{!ansCon.Phone}"/>
+                    <apex:inputField value="{!ansCon.Department}"/>
+                    <apex:inputField value="{!ansCon.Title}"/>
+                    <apex:inputField value="{!ansCon.City__c}"/>
+                    <apex:inputField value="{!ansCon.Street__c}"/>
+                    
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockButtons >
+                    <apex:commandButton action="{!saveEdit}" value="Update"/>
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+        </apex:form>
+
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!if(ansCon==null , true ,false)}">
+    	<apex:form id="tempform1">
+        <apex:pageBlock >
+            <apex:pageBlockSection columns="1" >
+                <apex:inputField value="{!c.LastName}" />
+                <apex:inputField value="{!c.Email}"/>
+                <apex:inputField value="{!c.Phone}"/>
+                <apex:inputField value="{!c.Department}"/>
+                <apex:inputField value="{!c.Title}"/>
+                <apex:inputField value="{!c.City__c}"/>
+                <apex:inputField value="{!c.Street__c}"/>
+                
+                
+            </apex:pageBlockSection>
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+    </apex:outputPanel>
+    
+
+ 
+    
+    <apex:form >
+        <apex:inputText value="{!searchKey}" label="Input"/>
+        <apex:commandButton value="Search records" action="{!search}"/>
+        
+        
+        <apex:pageBlock >
+            
+            <apex:pageBlockTable value="{!samepage}" var="c">
+                <!--<apex:param assignTo="{!conid}" value="{!c.Id}" />-->
+                <apex:column >
+                    
+                    <apex:commandButton value="Edit" onclick="" action="{!editKey}" reRender="tempform" >
+                        <apex:param name="conid" value="{!c.Id}" assignTo="{!conid}"></apex:param>
+                    </apex:commandButton>
+                    
+                    
+                </apex:column>
+                <apex:column headerValue="Id">
+                    <apex:outputField value="{!c.Id}"/>
+                </apex:column>   
+                <apex:column headerValue="Name">
+                    <apex:outputField value="{!c.LastName}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Email">
+                    <apex:outputField value="{!c.Email}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Phone">
+                    <apex:outputField value="{!c.Phone}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Department">
+                    <apex:outputField value="{!c.Department}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Title">
+                    <apex:outputField value="{!c.Title}"/>
+                </apex:column>
+                
+                <apex:column headerValue="City">
+                    <apex:outputField value="{!c.City__c}"/>
+                </apex:column>
+                
+                <apex:column headerValue="Street">
+                    <apex:outputField value="{!c.Street__c}"/>
+                </apex:column>
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+        
+        
+        
+        <!--<style type="text/css">
+.custPopup{
+background-color: white;
+border-width: 2px;
+border-style: solid;
+z-index: 9999;
+left: 50%;
+padding:10px;
+position: absolute;
+/* These are the 3 css properties you will need to change so the popup
+displays in the center of the screen. First set the width. Then set
+margin-left to negative half of what the width is. You can add
+the height property for a fixed size pop up if you want.*/
+width: 500px;
+margin-left: -250px;
+top:100px;
+}
+.popupBackground{
+background-color:black;
+opacity: 0.20;
+filter: alpha(opacity = 20);
+position: absolute;
+width: 100%;
+height: 100%;
+top: 0;
+left: 0;
+z-index: 9998;
+}
+
+</style>-->
+    </apex:form>
+</apex:page>
