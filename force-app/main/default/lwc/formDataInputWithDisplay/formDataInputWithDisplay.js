@@ -7,7 +7,7 @@ export default class FormDataInputWithDisplay extends LightningElement {
         if(ans==='firstName'){
             
             this.fullName.firstname=event.target.value
-            console.log(ans," ",this.fullName.firstname)
+           
         }else if (ans==='lastName'){
             this.fullName.lastname=event.target.value
             console.log(ans," ",this.fullName.lastname)
