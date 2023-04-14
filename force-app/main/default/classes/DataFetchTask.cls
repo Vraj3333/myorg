@@ -7,7 +7,7 @@ public with sharing  class DataFetchTask {
     public Contact ansCon {get; set;}
     public void editKey(){
         System.debug(conid);
-        
+         System.debug(conid);
         Contact con= [select Id,LastName,Email,Phone,Department,Title,City__c,Street__c from Contact where Id=: conid];
 		System.debug(con);
         ansCon=con;
